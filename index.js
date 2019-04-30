@@ -32,7 +32,7 @@ bot.hear('Teach me', (payload, chat) => {
           //     quickReplies: ['Mexican', 'Italian', 'American', 'Argentine']
           // });
             convo.say(`I take that as a yes! 😅 Let's start! 🚀 What are you really passionate about? 👊 A hobby or a favorite animal? Give me a word please! 😊`)
-            .then(() => askFavoriteFood(convo));
+            .then(() => next01(convo));
           },
       [
           {
@@ -67,13 +67,10 @@ bot.hear('Teach me', (payload, chat) => {
     convo.say(`Look, this here is a homepage 🖥 I made about ${convo.get('interest')}.`).then(
       () => next03(convo)
     );
-
-
   //     convo.say(`Ok, here's what you told me about you:
   //     - Name: ${convo.get('name')}
   //     - Favorite Food: ${convo.get('food')}`);
   // convo.end();
-
   }
 
   const next03 = convo => {
@@ -81,13 +78,48 @@ bot.hear('Teach me', (payload, chat) => {
       attachment: 'image',
       url: 'https://raw.githubusercontent.com/f8-icode/f8-I-Code/master/examples/q003.png'
     }).then(() => next04(convo));
-    // convo.say('Does it look good? 💅 Do you like it? 🤓');
   }
 
   const next04 = convo => {
+    convo.ask({
+      text: `Does it look good? 💅 Do you like it? 🤓`,
+      quickReplies: ['yes', 'no']
+  }, (payload, convo) => {
+      const text = payload.message.text;
+      convo.set('look', text);
+        convo.say(`Nice! 😃 I want to tell you about it's inner workings! 😏`)
+        .then(() => next05(convo));
+      },
+  [
+      {
+          event: 'quick_reply',
+          callback: data => {
+              const text = data.message.text;
 
-    // convo.sendAttachment('image', 'https://raw.githubusercontent.com/f8-icode/f8-I-Code/master/examples/q003.png');
-  }
+              if (text === 'no') {
+                convo.say(`Well, everyone's taste is different. 😝 I like it 😇 and I want to tell you about it's inner workings! 😏`)
+                .then(() => next05(convo));
+              } else {
+                convo.say(`Nice! 😃 I want to tell you about it's inner workings! 😏`)
+                .then(() => next05(convo));
+              }
+           }
+      }
+  ]
+  , { typing: true });
+}
+
+const next05 = convo => {
+  convo.say(`A homepage is made out of programming code (or just 'code' in short) which is written by programmers 👩🏽‍💻👨‍💻. You will also be a programmer soon! 👍 That's how the code looks like:`).then(
+    () => next06(convo)
+}
+
+const next06 = convo => {
+  //
+}
+
+
+// convo.sendAttachment('image', 'https://raw.githubusercontent.com/f8-icode/f8-I-Code/master/examples/q003.png');
 
   chat.conversation((convo) => {
       askMotivation(convo);
