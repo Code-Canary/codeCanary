@@ -135,7 +135,7 @@ const next09 = convo => {
   convo.ask(`So, please tell me your favorite color 🎨:`, (payload, convo) => {
     const green = payload.message.text;
     convo.set('color1', green);
-    convo.say(`Great! I love ${text}`).then(() => next10(convo));
+    convo.say(`Great! I love ${green}`).then(() => next10(convo));
   });
 }
 
@@ -151,7 +151,7 @@ const next10 = convo => {
     //     quickReplies: ['Mexican', 'Italian', 'American', 'Argentine']
     // });
       convo.say(`You should've typed picked an answer`)
-      .then(() => next01(convo));
+      .then(() => next11(convo));
     },
 [
     {
@@ -165,8 +165,39 @@ const next10 = convo => {
               convo.say(`You're AWESOME! 😎🤩 You just changed the styling of an HTML element! 🎉`)
               .then(() => next11(convo));
             } else {
-              convo.say(`Ok, let's start! 🚀`)
-              .then(() => next11(convo));
+
+
+
+              convo.ask({
+                text: `No, that's not quite right. Try again! 🙂`,
+                quickReplies: ["<div style=\"background‐color: green;\">", "<div style=\"background‐color: pink;\">"]
+            }, (payload, convo) => {
+                const text = payload.message.text;
+                convo.set('otherText', text);
+                  convo.say(`You should've typed picked an answer`)
+                  .then(() => next11(convo));
+                },
+            [
+                {
+                    event: 'quick_reply',
+                    callback: data => {
+                        console.log('quick reply', data);
+
+                        const text = data.message.text;
+
+                        if (text === "<div style=\"background‐color: green;\">") {
+                          convo.say(`You're AWESOME! 😎🤩 You just changed the styling of an HTML element! 🎉`)
+                          .then(() => next11(convo));
+                        } else {
+                          convo.say(``)
+                          .then(() => next11(convo));
+                        }
+                     }
+                }
+            ]
+            , { typing: true });
+
+
             }
          }
     }
