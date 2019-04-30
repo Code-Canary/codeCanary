@@ -117,7 +117,7 @@ const next05 = convo => {
 const next06 = convo => {
   convo.say({
     attachment: 'image',
-    url: 'https://carbon.now.sh/embed/?bg=rgba(171%252C%2520184%252C%2520195%252C%25201)&t=material&wt=none&l=auto&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fm=Hack&fs=14px&lh=133%2525&si=false&es=2x&wm=false&code=%25253Cdiv%252520style%25253D%252522background-color%25253A%252520beige%25253B%252522%25253E%25250A%252520%252520%252520%25253Ch1%25253EDogs%25253C%25252Fh1%25253E%25250A%252520%252520%252520%25253Cimg%252520src%25253D%252522https%25253A%25252F%25252Ftinyurl.com%25252Fy2shswoe%252522%252520%25252F%25253E%25250A%25253C%25252Fdiv%25253E'
+    url: 'https://github.com/f8-icode/codeCanary/blob/master/images/carbon%20(1).png?raw=true'
   }).then(() => next07(convo));
 }
 
@@ -182,7 +182,7 @@ const next11 = convo => {
 const next12 = convo => {
   convo.say({
     attachment: 'image',
-    url: 'https://carbon.now.sh/embed/?bg=rgba(171%252C%2520184%252C%2520195%252C%25201)&t=material&wt=none&l=auto&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fm=Hack&fs=14px&lh=133%2525&si=false&es=2x&wm=false&code=%25253Cdiv%252520style%25253D%252522background-color%25253A%252520green%25253B%252522%25253E%25250A%252520%252520%252520%25253Ch1%25253EDogs%25253C%25252Fh1%25253E%25250A%252520%252520%252520%25253Cimg%252520src%25253D%252522https%25253A%25252F%25252Ftinyurl.com%25252Fy2shswoe%252522%252520%25252F%25253E%25250A%25253C%25252Fdiv%25253E'
+    url: 'https://github.com/f8-icode/codeCanary/blob/master/images/carbon%20(2).png?raw=true'
   }).then(() => next13(convo));
 }
 
