@@ -12,5 +12,8 @@
   "dependencies": {
     "bootbot": "^1.0.6",
     "config": "^1.21.0"
+  },
+  "devDependencies": {
+    "bootbot-cli": "^1.0.5"
   }
 }
