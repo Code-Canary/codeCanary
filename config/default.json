@@ -1,0 +1,7 @@
+{
+  "accessToken": "***REMOVED***",
+  "verifyToken": "***REMOVED***",
+  "appSecret": "***REMOVED***",
+  "botPort": 8007,
+  "botTunnelSubDomain": "***REMOVED***"
+}
