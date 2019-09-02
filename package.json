@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "bootbot start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,5 +14,7 @@
     "config": "^1.21.0",
     "prettier": "^1.18.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "bootbot-cli": "git+ssh://git@github.com/Code-Canary/bootbot-cli.git#update-dependencies"
+  }
 }

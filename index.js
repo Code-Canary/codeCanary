@@ -18,6 +18,10 @@ const bot = new BootBot({
 //   chat.say(`Echo: ${text}`);
 // });
 
+bot.hear(['hello', 'hi', /hey( there)?/i], (payload, chat) => {
+  console.log('The user said "hello", "hi", "hey", or "hey there"');
+});
+
 bot.hear('Teach me', (payload, chat) => {
   const askMotivation = convo => {
     convo.ask(
